@@ -1,0 +1,77 @@
+.container{
+
+    width:min(1240px,92%);
+
+    margin-inline:auto;
+}
+
+.section{
+
+    padding:7rem 0;
+}
+
+.card{
+
+    background:var(--surface);
+
+    border-radius:var(--radius-lg);
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow-soft);
+
+    transition:.25s ease;
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-hover);
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+    padding:15px 28px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+    font-weight:600;
+}
+
+.btn-primary:hover{
+
+    background:var(--primary-hover);
+
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+
+    background:transparent;
+
+    border:1px solid var(--border);
+
+    padding:15px 28px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.btn-secondary:hover{
+
+    background:var(--surface);
+}
