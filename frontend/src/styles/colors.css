@@ -1,61 +1,37 @@
-:root {
+:root{
 
-    /* Backgrounds */
+--background:#F8F6F2;
 
-    --bg: #F6F2EA;
+--surface:#FFFFFF;
 
-    --surface: #FFFDF8;
+--surface-soft:#FCFBF9;
 
-    --surface-alt: #F9F5EF;
+--primary:#4F7DF3;
 
+--primary-hover:#3D69DA;
 
+--text:#1D1D1F;
 
-    /* Primary */
+--muted:#666666;
 
-    --primary: #B8925E;
+--border:#EAEAEA;
 
-    --primary-hover: #9F7844;
+--success:#30B566;
 
+--danger:#E45858;
 
+--radius-sm:14px;
 
-    /* Text */
+--radius-md:18px;
 
-    --text: #2A2A2A;
+--radius-lg:24px;
 
-    --text-light: #6D6D6D;
+--radius-xl:32px;
 
+--shadow-soft:
+0 10px 40px rgba(0,0,0,.06);
 
-
-    /* Borders */
-
-    --border: #E8DDCC;
-
-
-
-    /* Status */
-
-    --success: #3FA26D;
-
-    --danger: #D65A5A;
-
-
-
-    /* Radius */
-
-    --radius-sm: 12px;
-
-    --radius-md: 18px;
-
-    --radius-lg: 24px;
-
-    --radius-xl: 32px;
-
-
-
-    /* Shadows */
-
-    --shadow-soft: 0 8px 30px rgba(0,0,0,.05);
-
-    --shadow-hover: 0 14px 45px rgba(0,0,0,.08);
+--shadow-hover:
+0 18px 60px rgba(0,0,0,.08);
 
 }
