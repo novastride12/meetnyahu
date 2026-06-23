@@ -47,7 +47,7 @@ justify-content:center;
 
 padding:16px 28px;
 
-background:var(--primary);
+background: #1D1D1F;
 
 color:white;
 
@@ -70,6 +70,7 @@ box-shadow:var(--shadow-soft);
 transform:translateY(-2px);
 
 background:var(--primary-hover);
+box-shadow:var(--shadow-soft);
 
 }
 

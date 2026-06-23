@@ -1,33 +1,23 @@
-function App() {
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Browse from "./pages/Browse";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+import CreatePost from "./pages/CreatePost";
+import NotFound from "./pages/NotFound";
+
+export default function App() {
   return (
-    <main>
-      <section className="section">
-        <div className="container">
-          <h1>MeetnYahu</h1>
-
-          <p>
-            Where ideas find teammates.
-          </p>
-
-          <div
-            style={{
-              display: "flex",
-              gap: "1rem",
-              marginTop: "2rem",
-            }}
-          >
-            <button className="btn-primary">
-              Browse Projects
-            </button>
-
-            <button className="btn-secondary">
-              Create Account
-            </button>
-          </div>
-        </div>
-      </section>
-    </main>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/browse" element={<Browse />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/create-post" element={<CreatePost />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
-
-export default App;

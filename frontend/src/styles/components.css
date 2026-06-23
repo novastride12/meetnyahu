@@ -32,7 +32,7 @@
 
 .btn-primary{
 
-    background:var(--primary);
+    background:#1d1d1f;
 
     color:white;
 
@@ -51,9 +51,10 @@
 
 .btn-primary:hover{
 
-    background:var(--primary-hover);
+    background:rgb(0, 0, 0);
 
     transform:translateY(-2px);
+    color:#ffffff
 }
 
 .btn-secondary{
@@ -74,4 +75,404 @@
 .btn-secondary:hover{
 
     background:var(--surface);
+}
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+
+position:sticky;
+
+top:0;
+
+z-index:100;
+
+background:rgba(248,246,242,.82);
+
+backdrop-filter:blur(16px);
+
+border-bottom:1px solid rgba(0,0,0,.05);
+
+}
+
+.navbar-content{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:22px 0;
+
+}
+
+.logo{
+
+font-size:1.6rem;
+
+font-weight:700;
+
+letter-spacing:-.04em;
+
+margin:0;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:2.5rem;
+
+}
+
+.nav-links a{
+
+font-weight:500;
+
+color:var(--muted);
+
+transition:.25s;
+
+}
+
+.nav-links a:hover{
+
+color:var(--text);
+
+}
+
+.nav-actions{
+
+display:flex;
+
+gap:1rem;
+
+align-items:center;
+
+}
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+
+min-height:80vh;
+
+display:flex;
+
+align-items:center;
+
+}
+
+.hero-content{
+
+display:grid;
+
+grid-template-columns:1.1fr .9fr;
+
+gap:5rem;
+
+align-items:center;
+
+}
+
+.hero-badge{
+
+display:inline-block;
+
+padding:10px 18px;
+
+background:white;
+
+border:1px solid var(--border);
+
+border-radius:999px;
+
+margin-bottom:1.5rem;
+
+font-size:.9rem;
+
+font-weight:600;
+
+}
+
+.hero-left p{
+
+max-width:620px;
+
+margin:2rem 0;
+
+}
+
+.hero-actions{
+
+display:flex;
+
+gap:1rem;
+
+margin-top:2rem;
+
+}
+
+.hero-right{
+
+display:flex;
+
+flex-direction:column;
+
+gap:1.5rem;
+
+}
+
+.project-preview{
+
+background:white;
+
+padding:1.75rem;
+
+border-radius:24px;
+
+border:1px solid var(--border);
+
+box-shadow:var(--shadow-soft);
+
+transition:.3s;
+
+}
+
+.project-preview:hover{
+
+transform:translateY(-4px);
+
+box-shadow:var(--shadow-hover);
+
+}
+
+.project-preview h3{
+
+margin:0 0 .5rem;
+
+}
+
+.project-preview p{
+
+margin:0;
+
+}
+/* ===========================
+   CHIP
+=========================== */
+
+.chip{
+
+display:inline-flex;
+
+align-items:center;
+
+padding:8px 14px;
+
+border-radius:999px;
+
+background:#eef3ff;
+
+color:#00334b;
+
+font-size:.85rem;
+
+font-weight:600;
+
+}
+
+/* ===========================
+   PROJECTS
+=========================== */
+
+.project-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:2rem;
+
+margin-top:3rem;
+
+}
+
+.project-card{
+
+display:flex;
+
+flex-direction:column;
+
+gap:1.25rem;
+
+padding:2rem;
+
+background:white;
+
+border:1px solid var(--border);
+
+border-radius:24px;
+
+box-shadow:var(--shadow-soft);
+
+transition:.3s;
+
+}
+
+.project-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:var(--shadow-hover);
+
+}
+
+.project-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:flex-start;
+
+gap:1rem;
+
+}
+
+.project-header h3{
+
+margin:0;
+
+}
+
+.project-domain{
+
+font-size:.85rem;
+
+color: rgb(0, 63, 126) ;
+
+font-weight:600;
+
+}
+
+.project-description{
+
+margin:0;
+
+}
+
+.project-skills{
+
+display:flex;
+
+gap:.6rem;
+
+flex-wrap:wrap;
+
+}
+
+.project-footer{
+
+display:flex;
+
+justify-content:space-between;
+
+font-size:.9rem;
+
+color:var(--muted);
+
+margin-top:auto;
+
+}
+
+.project-button{
+
+width:100%;
+
+margin-top:.5rem;
+
+}
+/* ===========================
+   SEARCH BAR
+=========================== */
+
+.search-bar{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:16px 20px;
+
+background:white;
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+box-shadow:var(--shadow-soft);
+
+}
+
+.search-bar input{
+
+width:100%;
+
+border:none;
+
+outline:none;
+
+background:transparent;
+
+font-size:1rem;
+
+}
+
+.search-bar svg{
+
+color:var(--muted);
+
+}
+/* ===========================
+   SELECT
+=========================== */
+
+.select{
+
+padding:16px 20px;
+
+background:white;
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+font-size:.95rem;
+
+outline:none;
+
+cursor:pointer;
+
+}
+/* ===========================
+   BROWSE
+=========================== */
+
+.browse-toolbar{
+
+display:grid;
+
+grid-template-columns:2fr 1fr;
+
+gap:1rem;
+
+margin:3rem 0;
+
 }
