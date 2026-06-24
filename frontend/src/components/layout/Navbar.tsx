@@ -26,7 +26,7 @@ export default function Navbar() {
           <Link to="/register">
 
           <Button>
-            Register
+            Get Started
           </Button>
           </Link>
 
