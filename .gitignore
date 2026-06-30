@@ -29,3 +29,13 @@ coverage/
 
 # Temporary files
 *.tmp
+
+# Environment variables
+.env
+**/.env
+
+# Dependencies
+node_modules/
+
+# Build folders
+dist/
