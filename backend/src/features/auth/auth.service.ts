@@ -4,21 +4,36 @@ import User from "./auth.model";
 export async function registerUser(userid: string, password: string) {
   userid = userid.toLowerCase();
 
-  const existingUser = await User.findOne({ userid });
+  const existing = await User.findOne({ userid });
 
-  if (existingUser) {
+  if (existing) {
     throw new Error("User ID already exists");
   }
 
-  const hashedPassword = await bcrypt.hash(password, 12);
+  const hashed = await bcrypt.hash(password, 12);
 
   const user = await User.create({
     userid,
-    password: hashedPassword,
+    password: hashed,
   });
 
-  return {
-    userid: user.userid,
-    profileCompleted: user.profileCompleted,
-  };
+  return user;
+}
+
+export async function loginUser(userid: string, password: string) {
+  userid = userid.toLowerCase();
+
+  const user = await User.findOne({ userid });
+
+  if (!user) {
+    throw new Error("Invalid credentials");
+  }
+
+  const valid = await bcrypt.compare(password, user.password);
+
+  if (!valid) {
+    throw new Error("Invalid credentials");
+  }
+
+  return user;
 }
