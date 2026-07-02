@@ -40,3 +40,19 @@ const userSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("User", userSchema);
+
+export interface IUser {
+    userid: string;
+    password: string;
+
+    profileCompleted: boolean;
+
+    name?: string;
+    srn?: string;
+
+    gender?: string;
+    department?: string;
+    cgpa?: number;
+
+    skills: string[];
+}

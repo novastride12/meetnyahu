@@ -23,3 +23,5 @@ export const createProjectSchema = z.object({
 
   teammatesNeeded: z.number().min(1).max(10),
 });
+
+export const updateProjectSchema = createProjectSchema.partial();

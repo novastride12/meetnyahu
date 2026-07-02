@@ -64,3 +64,16 @@ const projectSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("Project", projectSchema);
+export interface IProject {
+    title: string;
+
+    description: string;
+
+    domain: string;
+
+    requiredSkills: string[];
+
+    teammatesNeeded: number;
+
+    status: "OPEN" | "TEAM_COMPLETE";
+}
