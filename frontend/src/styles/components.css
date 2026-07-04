@@ -516,6 +516,16 @@ border-radius:28px;
 
 box-shadow:var(--shadow-soft);
 
+transition:.25s ease;
+
+}
+
+.auth-card:hover{
+
+transform:translateY(-2px);
+
+box-shadow:var(--shadow-hover);
+
 }
 
 .auth-card h1{
@@ -603,5 +613,18 @@ text-align:center;
 color:var(--primary);
 
 font-weight:600;
+
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled{
+
+opacity:.55;
+
+cursor:not-allowed;
+
+transform:none;
+
+box-shadow:none;
 
 }
