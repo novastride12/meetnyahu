@@ -70,20 +70,32 @@ export default function Login() {
           />
 
           {error && (
-            <p
-              style={{
-                color: "#EF4444",
-                margin: 0,
-                fontWeight: 500,
-              }}
-            >
-              {error}
-            </p>
-          )}
+  <p
+    style={{
+      color: "#DC2626",
+      marginTop: "1rem",
+      gridColumn: "1 / -1",
+      fontWeight: 500,
+    }}
+  >
+    {error}
+  </p>
+)}
 
-          <Button type="submit" disabled={loading}>
-            {loading ? "Signing in..." : "Continue"}
-          </Button>
+          
+       <Button
+  type="submit"
+  disabled={loading}
+  style={{
+    gridColumn: "1 / -1",
+    width: "220px",
+    justifySelf: "center",
+  }}
+>
+  {loading ? "Signing In..." : "Continue"}
+</Button>
+
+
         </form>
 
         <div className="auth-footer">

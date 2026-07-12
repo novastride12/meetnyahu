@@ -1,34 +1,79 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
+
 import Button from "../ui/Button";
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
+
+  async function handleLogout() {
+    await logout();
+    window.location.href = "/";
+  }
+
   return (
     <header className="navbar">
       <div className="container navbar-content">
 
-        <h2 className="logo">
+        <Link
+          to="/"
+          className="logo"
+        >
           MeetnYahu
-        </h2>
-<nav className="nav-links">
-  <Link to="/browse">Browse</Link>
-  <Link to="/">Home</Link>
-  <Link to="/">About</Link>
-</nav>
+        </Link>
+
+        <nav className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/browse">Browse</Link>
+
+          {user && (
+            <>
+              <Link to="/create-project">
+                Create
+              </Link>
+
+              <Link to="/profile">
+                Profile
+              </Link>
+            </>
+          )}
+        </nav>
 
         <div className="nav-actions">
 
-          <Link to="/login">
-          <Button variant="secondary">
-            Login
-          </Button>
-          </Link>
+          {!user ? (
+            <>
+              <Link to="/login">
+                <Button variant="secondary">
+                  Login
+                </Button>
+              </Link>
 
-          <Link to="/register">
+              <Link to="/register">
+                <Button>
+                  Get Started
+                </Button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <span
+                style={{
+                  color: "var(--muted)",
+                  fontWeight: 600,
+                }}
+              >
+                @{user.userid}
+              </span>
 
-          <Button>
-            Get Started
-          </Button>
-          </Link>
+              <Button
+                variant="secondary"
+                onClick={handleLogout}
+              >
+                Logout
+              </Button>
+            </>
+          )}
 
         </div>
 

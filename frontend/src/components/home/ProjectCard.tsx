@@ -1,9 +1,8 @@
 import Chip from "../ui/Chip";
 import Button from "../ui/Button";
-import type { Project } from "../../data/projects";
 
 interface Props {
-  project: Project;
+  project: any;
 }
 
 export default function ProjectCard({ project }: Props) {
@@ -12,11 +11,13 @@ export default function ProjectCard({ project }: Props) {
 
       <div className="project-header">
 
-        <h3>{project.title}</h3>
+        <div>
+          <h3>{project.title}</h3>
 
-        <span className="project-domain">
-          {project.domain}
-        </span>
+          <span className="project-domain">
+            {project.domain}
+          </span>
+        </div>
 
       </div>
 
@@ -25,27 +26,32 @@ export default function ProjectCard({ project }: Props) {
       </p>
 
       <div className="project-skills">
-
-        {project.skills.map((skill) => (
+        {project.skills?.map((skill: string) => (
           <Chip
             key={skill}
             label={skill}
           />
         ))}
-
       </div>
 
       <div className="project-footer">
 
         <span>
-          👥 {project.teammatesNeeded} teammates
+          👥 {project.membersNeeded} teammates
         </span>
 
-        <span>{project.posted}</span>
+        <span>
+          {project.completed ? "Completed" : "Open"}
+        </span>
 
       </div>
 
-      <Button className="project-button">
+      <Button
+        className="project-button"
+        onClick={() => {
+          alert(`Project: ${project.title}`);
+        }}
+      >
         View Project
       </Button>
 

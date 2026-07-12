@@ -3,11 +3,22 @@ import { registerSchema } from "./auth.validator";
 import { loginUser, registerUser } from "./auth.service";
 import { generateToken } from "../../shared/utils/jwt";
 
+
+
+
 export async function register(req: Request, res: Response) {
+
+  console.log("========== REGISTER ==========");
+  console.log(req.body);
+
   try {
     const validation = registerSchema.safeParse(req.body);
 
+    console.log("Validation:", validation.success);
+
     if (!validation.success) {
+      console.log(validation.error.flatten());
+
       return res.status(400).json({
         success: false,
         message: "Validation failed",
@@ -17,9 +28,15 @@ export async function register(req: Request, res: Response) {
 
     const { userid, password } = validation.data;
 
+    console.log("Creating user...");
+
     const user = await registerUser(userid, password);
 
+    console.log("User created:", user.userid);
+
     const token = generateToken(user.id);
+
+    console.log("Token generated");
 
     res.cookie("token", token, {
       httpOnly: true,
@@ -27,6 +44,8 @@ export async function register(req: Request, res: Response) {
       secure: false,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
+
+    console.log("Cookie set");
 
     return res.status(201).json({
       success: true,
@@ -38,6 +57,10 @@ export async function register(req: Request, res: Response) {
     });
 
   } catch (error) {
+
+    console.error("REGISTER FAILED");
+    console.error(error);
+
     return res.status(400).json({
       success: false,
       message:

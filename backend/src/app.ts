@@ -7,8 +7,15 @@ import projectRoutes from "./features/project/project.routes";
 
 const app = express();
 
-app.use(cors());
-
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use(cookieParser());
@@ -26,4 +33,13 @@ app.get("/", (_req, res) => {
   });
 });
 
+app.use((err: any, _req: any, res: any, _next: any) => {
+  console.error("GLOBAL ERROR");
+  console.error(err);
+
+  res.status(500).json({
+    success: false,
+    message: err.message,
+  });
+});
 export default app;

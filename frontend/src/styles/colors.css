@@ -1,24 +1,108 @@
 :root{
 
---background:#F8F6F2;
+/* ===========================================
+   BRAND
+=========================================== */
 
---surface:#FFFFFF;
+--primary:#D97A63;
+--primary-hover:#C86751;
+--primary-light:#F8DDD4;
 
---surface-soft:#FCFBF9;
+--secondary:#F4E7DD;
 
---primary:#4F7DF3;
+/* ===========================================
+   BACKGROUNDS
+=========================================== */
 
---primary-hover:#3D69DA;
+--background:#F8F4EF;
+--background-alt:#FDFBF8;
 
---text:#1D1D1F;
+--surface:rgba(255,255,255,.72);
+--surface-solid:#FFFFFF;
+--surface-soft:#F8F5F1;
 
---muted:#666666;
+--glass:rgba(255,255,255,.45);
 
---border:#EAEAEA;
+/* ===========================================
+   HERO
+=========================================== */
 
---success:#30B566;
+--hero-gradient:
+radial-gradient(
+circle at top left,
+rgba(243,180,163,.45),
+transparent 38%
+),
+radial-gradient(
+circle at bottom right,
+rgba(253,226,198,.35),
+transparent 42%
+),
+linear-gradient(
+180deg,
+#FCFAF8 0%,
+#F8F4EF 100%
+);
+
+/* ===========================================
+   TEXT
+=========================================== */
+
+--text:#171717;
+
+--text-light:#4F4F4F;
+
+--muted:#7C7C7C;
+
+/* ===========================================
+   BORDER
+=========================================== */
+
+--border:#EEE7DE;
+
+--border-strong:#DDD3C8;
+
+/* ===========================================
+   ACCENTS
+=========================================== */
+
+--accent:#E7B879;
+
+--accent-light:#F8E8CF;
+
+--success:#37B26C;
 
 --danger:#E45858;
+
+--warning:#E6A23C;
+
+/* ===========================================
+   SHADOWS
+=========================================== */
+
+--shadow-xs:
+0 2px 8px rgba(24,24,27,.04);
+
+--shadow-soft:
+0 12px 40px rgba(24,24,27,.06);
+
+--shadow-hover:
+0 20px 60px rgba(24,24,27,.10);
+
+--shadow-large:
+0 40px 100px rgba(24,24,27,.12);
+
+/* ===========================================
+   BLUR
+=========================================== */
+
+--blur:blur(18px);
+
+/* ===========================================
+   RADIUS
+=========================================== */
+
+--radius-xs:10px;
 
 --radius-sm:14px;
 
@@ -26,12 +110,14 @@
 
 --radius-lg:24px;
 
---radius-xl:32px;
+--radius-xl:34px;
 
---shadow-soft:
-0 10px 40px rgba(0,0,0,.06);
+/* ===========================================
+   TRANSITIONS
+=========================================== */
 
---shadow-hover:
-0 18px 60px rgba(0,0,0,.08);
+--transition-fast:.18s ease;
+
+--transition:.3s cubic-bezier(.2,.8,.2,1);
 
 }

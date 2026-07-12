@@ -23,13 +23,23 @@ export async function registerUser(userid: string, password: string) {
 export async function loginUser(userid: string, password: string) {
   userid = userid.toLowerCase();
 
+  console.log("========== LOGIN ==========");
+  console.log("Incoming userid:", userid);
+  console.log("Incoming password:", password);
+
   const user = await User.findOne({ userid });
+
+  console.log("User found:", !!user);
 
   if (!user) {
     throw new Error("Invalid credentials");
   }
 
+  console.log("Stored hash:", user.password);
+
   const valid = await bcrypt.compare(password, user.password);
+
+  console.log("Password match:", valid);
 
   if (!valid) {
     throw new Error("Invalid credentials");
