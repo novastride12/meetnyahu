@@ -23,17 +23,29 @@ export default function CreateProject() {
 
     try {
       setLoading(true);
+      console.log({
+  title,
+  description,
+  domain,
+  requiredSkills: skills
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean),
+  teammatesNeeded: Number(membersNeeded),
+});
 
       await createProject({
-        title,
-        description,
-        domain,
-        skills: skills
-          .split(",")
-          .map((skill) => skill.trim())
-          .filter(Boolean),
-        membersNeeded: Number(membersNeeded),
-      });
+    title,
+    description,
+    domain,
+
+    requiredSkills: skills
+        .split(",")
+        .map(s => s.trim())
+        .filter(Boolean),
+
+    teammatesNeeded: Number(membersNeeded),
+});
 
       navigate("/browse");
 
@@ -74,22 +86,32 @@ export default function CreateProject() {
             required
           />
 
-          <Input
-            id="description"
-            label="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
+         
 
-          <Input
-            id="domain"
-            label="Domain"
-            placeholder="AI, Web, Blockchain..."
-            value={domain}
-            onChange={(e) => setDomain(e.target.value)}
-            required
-          />
+          <div className="form-group">
+  <label htmlFor="domain">Domain</label>
+
+  <select
+    id="domain"
+    value={domain}
+    onChange={(e) => setDomain(e.target.value)}
+    required
+  >
+    <option value="">Select Domain</option>
+
+    <option value="Web Development">Web Development</option>
+    <option value="Mobile Development">Mobile Development</option>
+    <option value="Machine Learning">Machine Learning</option>
+    <option value="Artificial Intelligence">Artificial Intelligence</option>
+    <option value="Cybersecurity">Cybersecurity</option>
+    <option value="Blockchain">Blockchain</option>
+    <option value="Cloud Computing">Cloud Computing</option>
+    <option value="IoT">IoT</option>
+    <option value="Data Science">Data Science</option>
+    <option value="Game Development">Game Development</option>
+    <option value="Other">Other</option>
+  </select>
+</div>
 
           <Input
             id="skills"
@@ -107,6 +129,20 @@ export default function CreateProject() {
             onChange={(e) => setMembersNeeded(e.target.value)}
             required
           />
+           <div className="form-group">
+  <label htmlFor="description">
+    Description
+  </label>
+
+  <textarea
+    id="description"
+    rows={6}
+    placeholder="Describe your project, expected work, goals and the type of teammates you're looking for..."
+    value={description}
+    onChange={(e) => setDescription(e.target.value)}
+    required
+  />
+</div>
 
           <Button
             type="submit"

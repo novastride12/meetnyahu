@@ -6,6 +6,8 @@ import Card from "../components/ui/Card";
 
 export default function Home() {
   const { user, loading } = useAuth();
+console.log("HOME USER:", user);
+console.log("PROFILE COMPLETED:", user?.profileCompleted, typeof user?.profileCompleted);  
 
   if (loading) {
     return (
