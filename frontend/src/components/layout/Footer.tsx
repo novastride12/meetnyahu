@@ -23,7 +23,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
 
-        © 2026 MeetnYahu · Built by nova
+        © 2026 MeetnYahu · Built by nova and nxtstealth
 
       </div>
     </footer>
