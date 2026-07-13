@@ -1,10 +1,31 @@
 import { Link } from "react-router-dom";
+
 import { useAuth } from "../../hooks/useAuth";
+import { getMyProject } from "../../services/project";
+
+import { useEffect, useState } from "react";
 
 import Button from "../ui/Button";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
+
+  const [myProject, setMyProject] = useState<any>(null);
+
+  useEffect(() => {
+    async function loadProject() {
+      if (!user) return;
+
+      try {
+        const response = await getMyProject();
+        setMyProject(response.data);
+      } catch {
+        setMyProject(null);
+      }
+    }
+
+    loadProject();
+  }, [user]);
 
   async function handleLogout() {
     await logout();
@@ -16,27 +37,40 @@ export default function Navbar() {
       <div className="container navbar-content">
 
         <Link
-          to="/"
+          to={user ? "/dashboard" : "/"}
           className="logo"
         >
           MeetnYahu
         </Link>
 
         <nav className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/browse">Browse</Link>
 
-          {user && (
+          {user ? (
             <>
-              <Link to="/create-project">
-                Create
+              <Link to="/dashboard">
+                Dashboard
               </Link>
+
+              <Link to="/browse">
+                Browse
+              </Link>
+
+              {myProject ? (
+                <Link to={`/projects/${myProject._id}`}>
+                  My Project
+                </Link>
+              ) : (
+                <Link to="/create-project">
+                  Create Project
+                </Link>
+              )}
 
               <Link to="/profile">
                 Profile
               </Link>
             </>
-          )}
+          ) : null}
+
         </nav>
 
         <div className="nav-actions">
@@ -57,21 +91,18 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <span
-                style={{
-                  color: "var(--muted)",
-                  fontWeight: 600,
-                }}
-              >
-                @{user.userid}
-              </span>
+              <div className="nav-user">
+                <span className="nav-user-id">
+                  @{user.userid}
+                </span>
 
-              <Button
-                variant="secondary"
-                onClick={handleLogout}
-              >
-                Logout
-              </Button>
+                <Button
+                  variant="secondary"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Button>
+              </div>
             </>
           )}
 

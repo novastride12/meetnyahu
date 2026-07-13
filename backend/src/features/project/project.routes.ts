@@ -1,12 +1,13 @@
 import { Router } from "express";
 import { protect } from "../../middleware/auth.middleware";
 import {
-  create,
+   create,
   getAll,
   getOne,
+  update,
   remove,
   complete,
-  update,
+  getMine,
 } from "./project.controller";
 
 const router = Router();
@@ -14,6 +15,12 @@ const router = Router();
 router.get("/", getAll);
 
 router.post("/", protect, create);
+
+router.get(
+  "/me",
+  protect,
+  getMine
+);
 
 router.get("/:id", getOne);
 

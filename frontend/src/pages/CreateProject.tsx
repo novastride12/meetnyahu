@@ -137,7 +137,7 @@ export default function CreateProject() {
   <textarea
     id="description"
     rows={6}
-    placeholder="Describe your project, expected work, goals and the type of teammates you're looking for..."
+    placeholder="Describe your project, expected work, goals and the type of teammates you're looking for... (optional give the userid/Whatsapp number for potential teammates to contact you)"
     value={description}
     onChange={(e) => setDescription(e.target.value)}
     required

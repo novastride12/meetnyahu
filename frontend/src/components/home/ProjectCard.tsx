@@ -1,6 +1,8 @@
 import Chip from "../ui/Chip";
 import Button from "../ui/Button";
 
+import { Link } from "react-router-dom";
+
 interface Props {
   project: any;
 }
@@ -46,14 +48,15 @@ export default function ProjectCard({ project }: Props) {
 
       </div>
 
-      <Button
-        className="project-button"
-        onClick={() => {
-          alert(`Project: ${project.title}`);
-        }}
-      >
+      <Link to={`/projects/${project._id}`}>
+
+    <Button className="project-button">
+
         View Project
-      </Button>
+
+    </Button>
+
+</Link>
 
     </article>
   );

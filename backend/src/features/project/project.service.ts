@@ -118,3 +118,13 @@ export async function updateProject(
 
   return project;
 }
+
+export async function getMyProject(userId: string) {
+  return await Project.findOne({
+    createdBy: userId,
+    status: "OPEN",
+  }).populate(
+    "createdBy",
+    "userid name department cgpa"
+  );
+}

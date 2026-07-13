@@ -66,7 +66,7 @@ const { user, refreshUser } = useAuth();
 
       await refreshUser();
 
-      navigate("/");
+      navigate("/dashboard");
 
     } catch (err) {
       console.error(err);

@@ -1,7 +1,14 @@
 import type { Request, Response } from "express";
 import { createProjectSchema, updateProjectSchema  } from "./project.validator";
-import { completeProject, createProject, deleteProject , updateProject } from "./project.service";
-import { getAllProjects,getProject } from "./project.service";
+import {
+  createProject,
+  updateProject,
+  deleteProject,
+  completeProject,
+  getAllProjects,
+  getProject,
+  getMyProject,
+} from "./project.service";
 
 export async function create(req: Request, res: Response) {
   try {
@@ -188,6 +195,30 @@ export async function update(
       error instanceof Error
       ? error.message
       : "Update failed",
+    });
+
+  }
+}
+
+export async function getMine(
+  req: Request,
+  res: Response
+) {
+  try {
+    const user = (req as any).user;
+
+    const project = await getMyProject(user._id.toString());
+
+    return res.json({
+      success: true,
+      data: project,
+    });
+
+  } catch {
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to fetch project",
     });
 
   }

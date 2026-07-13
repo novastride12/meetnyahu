@@ -29,3 +29,8 @@ export async function completeProject(id: string) {
   const response = await api.patch(`/projects/${id}/complete`);
   return response.data;
 }
+
+export async function getMyProject() {
+  const response = await api.get("/projects/me");
+  return response.data;
+}

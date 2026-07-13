@@ -8,7 +8,7 @@ import Card from "../components/ui/Card";
 
 import { getMyProject } from "../services/project";
 
-export default function Home() {
+export default function Dashboard() {
   const { user, loading } = useAuth();
 
   const [myProject, setMyProject] = useState<any>(null);
@@ -39,68 +39,36 @@ export default function Home() {
   if (!user) {
     return (
       <main className="container section">
-        <section
+        <Card
           style={{
-            minHeight: "85vh",
-            display: "flex",
-            alignItems: "center",
+            maxWidth: "600px",
+            margin: "0 auto",
+            textAlign: "center",
           }}
         >
-          <div style={{ maxWidth: 760 }}>
-            <span
-              style={{
-                display: "inline-block",
-                padding: "8px 16px",
-                borderRadius: "999px",
-                background: "var(--primary-light)",
-                marginBottom: "1.5rem",
-                fontWeight: 600,
-              }}
-            >
-              MeetnYahu
-            </span>
+          <h1>Access Denied</h1>
 
-            <h1>
-              Find the people
-              <br />
-              worth building with.
-            </h1>
+          <p
+            style={{
+              margin: "1.5rem 0 2rem",
+            }}
+          >
+            Please login to continue.
+          </p>
 
-            <p
-              style={{
-                marginTop: "2rem",
-                maxWidth: "620px",
-              }}
-            >
-              Discover teammates for capstone projects,
-              hackathons and startup ideas.
-            </p>
-
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                marginTop: "3rem",
-              }}
-            >
-              <Link to="/register">
-                <Button>Get Started</Button>
-              </Link>
-
-              <Link to="/login">
-                <Button variant="secondary">
-                  Login
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
+          <Link to="/login">
+            <Button>
+              Login
+            </Button>
+          </Link>
+        </Card>
       </main>
     );
   }
 
   return (
     <main className="container section">
+
       <div
         style={{
           display: "flex",
@@ -110,6 +78,7 @@ export default function Home() {
         }}
       >
         <div>
+
           <span
             style={{
               color: "var(--muted)",
@@ -119,25 +88,42 @@ export default function Home() {
             DASHBOARD
           </span>
 
-          <h1 style={{ marginTop: ".5rem" }}>
+          <h1
+            style={{
+              marginTop: ".5rem",
+            }}
+          >
             Welcome back,
             <br />
-            {user.userid}
+            {user.name || user.userid}
           </h1>
 
-          <p style={{ marginTop: "1.5rem" }}>
-            Build your next capstone with the right team.
+          <p
+            style={{
+              marginTop: "1.5rem",
+            }}
+          >
+            Build your next capstone with the right people.
           </p>
+
         </div>
+
       </div>
 
       {!user.profileCompleted && (
-        <Card style={{ marginBottom: "2rem" }}>
+        <Card
+          style={{
+            marginBottom: "2rem",
+          }}
+        >
           <h2>Complete your profile</h2>
 
-          <p style={{ margin: "1rem 0 2rem" }}>
-            Add your department, CGPA and skills before
-            applying to projects.
+          <p
+            style={{
+              margin: "1rem 0 2rem",
+            }}
+          >
+            Add your department, CGPA and skills before creating or joining projects.
           </p>
 
           <Link to="/profile">
@@ -155,24 +141,38 @@ export default function Home() {
           gap: "2rem",
         }}
       >
+
         <Card>
+
           <h2>Browse Projects</h2>
 
-          <p style={{ margin: "1rem 0 2rem" }}>
-            Explore projects from students looking for
-            teammates.
+          <p
+            style={{
+              margin: "1rem 0 2rem",
+            }}
+          >
+            Explore projects looking for teammates.
           </p>
 
           <Link to="/browse">
-            <Button>Browse</Button>
+            <Button>
+              Browse
+            </Button>
           </Link>
+
         </Card>
 
         {myProject ? (
+
           <Card>
+
             <h2>My Project</h2>
 
-            <p style={{ margin: "1rem 0 2rem" }}>
+            <p
+              style={{
+                margin: "1rem 0 2rem",
+              }}
+            >
               {myProject.title}
             </p>
 
@@ -181,26 +181,43 @@ export default function Home() {
                 View Project
               </Button>
             </Link>
+
           </Card>
+
         ) : (
+
           <Card>
+
             <h2>Create Project</h2>
 
-            <p style={{ margin: "1rem 0 2rem" }}>
-              Publish your own project and recruit teammates.
+            <p
+              style={{
+                margin: "1rem 0 2rem",
+              }}
+            >
+              Publish your own idea and recruit teammates.
             </p>
 
             <Link to="/create-project">
-              <Button>Create</Button>
+              <Button>
+                Create Project
+              </Button>
             </Link>
+
           </Card>
+
         )}
 
         <Card>
+
           <h2>My Profile</h2>
 
-          <p style={{ margin: "1rem 0 2rem" }}>
-            Manage your profile and showcase your skills.
+          <p
+            style={{
+              margin: "1rem 0 2rem",
+            }}
+          >
+            Update your profile and showcase your skills.
           </p>
 
           <Link to="/profile">
@@ -208,8 +225,11 @@ export default function Home() {
               View Profile
             </Button>
           </Link>
+
         </Card>
+
       </div>
+
     </main>
   );
 }
